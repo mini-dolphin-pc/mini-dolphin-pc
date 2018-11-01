@@ -1,0 +1,5 @@
+.ant-select-selection--single {
+    height: 38px;
+    position: relative;
+    cursor: pointer;
+}
