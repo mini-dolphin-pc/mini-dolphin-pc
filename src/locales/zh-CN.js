@@ -71,6 +71,8 @@ export default {
     'menu.homepage.console': '控制台',
     'menu.manage': '系统设置',
     'menu.manage.user': '用户管理',
+    'menu.before': '前台',
+    'menu.before.form': '前台 油品交款对账报表',
     'menu.manage.rolemanagement': '角色管理',
     'menu.manage.meunmanagement': '菜单管理',
     'menu.dashboard': 'Dashboard',
