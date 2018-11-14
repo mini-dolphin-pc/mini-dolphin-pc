@@ -1,5 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
+import { URL } from '@/utils/utils';
 
 export async function queryProjectNotice() {
     return request('/api/project/notice');
@@ -7,6 +8,14 @@ export async function queryProjectNotice() {
 
 export async function queryActivities() {
     return request('/api/activities');
+}
+
+export async function queryLogin(payload) {
+    console.log(payload)
+    return request('/api/login/stafflogin', {
+        method: 'POST',
+        body: payload
+    });
 }
 
 export async function queryRule(params) {
@@ -105,9 +114,9 @@ export async function updateFakeList(params) {
 
 export async function fakeAccountLogin(params) {
     console.log(params);
-    return request('/api/login/account', {
-        method: 'POST',
-        body: params,
+    return request(`/api/login/account`, {
+        method: 'post',
+        body: JSON.stringify(params),
     });
 }
 

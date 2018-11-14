@@ -69,7 +69,6 @@ class Analysis extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     const { dispatch } = this.props;
     this.reqRef = requestAnimationFrame(() => {
       dispatch({
@@ -421,6 +420,7 @@ class Analysis extends Component {
         </Row>
 
         <Card loading={loading} bordered={false} bodyStyle={{ padding: 0 }}>
+          学习
           <div className={styles.salesCard}>
             <Tabs tabBarExtraContent={salesExtra} size="large" tabBarStyle={{ marginBottom: 24 }}>
               <TabPane

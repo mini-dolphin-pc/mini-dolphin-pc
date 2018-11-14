@@ -17,7 +17,7 @@ class Center extends PureComponent {
       <Menu>
         <Menu.Item>
           <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-            1st menu items
+            1st menu item
           </a>
         </Menu.Item>
         <Menu.Item>

@@ -15,7 +15,6 @@ const generateId = (() => {
 class LoginTab extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.uniqueId = generateId('login-tab-');
   }
 

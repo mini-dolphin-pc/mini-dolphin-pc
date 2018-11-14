@@ -6,9 +6,9 @@ import { formatMessage, FormattedMessage } from 'umi/locale';
 import { Checkbox, Alert} from 'antd';
 import Login from '@/components/Login';
 import styles from './Login.less';
+// const { Tab, Mobile, Captcha, Submit } = Login;
 
-const { Tab, UserName, Password, Submit } = Login;
-// const { Tab, UserName, Password, Mobile, Captcha, Submit } = Login;
+const { Tab, Password, Mobile, Submit } = Login;
 
 @connect(({ login, loading }) => ({
   login,
@@ -44,7 +44,6 @@ class LoginPage extends Component {
   handleSubmit = (err, values) => {
     // type判断是手机号登陆还是用户登录，values是输入的用户名与密码
     const { type } = this.state;
-    window.type=type;
     if (!err) {
       const { dispatch } = this.props;
       window.dispatch=dispatch
@@ -86,7 +85,7 @@ class LoginPage extends Component {
               login.type === 'account' &&
               !submitting &&
               this.renderMessage(formatMessage({ id: 'app.login.message-invalid-credentials' }))}
-            <UserName name="userName" placeholder="请输入用户名" />
+            <Mobile name="mobile" placeholder="请输入手机号" />
             <Password
               name="password"
               placeholder="请输入密码"
@@ -97,7 +96,9 @@ class LoginPage extends Component {
             {login.status === 'error' &&
               login.type === 'mobile' &&
               !submitting &&
-              this.renderMessage(formatMessage({ id: 'app.login.message-invalid-verification-code' }))}
+              this.renderMessage(
+                formatMessage({ id: 'app.login.message-invalid-verification-code' })
+              )}
             <Mobile name="mobile" />
             <Captcha name="captcha" countDown={120} onGetCaptcha={this.onGetCaptcha} />
           </Tab> */}

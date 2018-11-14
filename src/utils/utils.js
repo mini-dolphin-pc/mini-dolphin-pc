@@ -159,7 +159,8 @@ export function formatWan(val) {
     result = Math.floor(val / 10000);
     result = (
       <span>
-        {result}
+        {' '}
+        {result}{' '}
         <span
           styles={{
             position: 'relative',
@@ -170,8 +171,8 @@ export function formatWan(val) {
             marginLeft: 2,
           }}
         >
-          万
-        </span>
+          万{' '}
+        </span>{' '}
       </span>
     );
   }

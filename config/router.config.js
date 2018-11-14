@@ -6,7 +6,7 @@ export default [
         routes: [
             { path: '/user', redirect: '/user/login' },
             { path: '/user/login', component: './User/Login' },
-            // { path: '/user/register', component: './User/Register' },
+            { path: '/user/register', component: './User/Register' },
             { path: '/user/register-result', component: './User/RegisterResult' },
         ],
     },
@@ -17,45 +17,113 @@ export default [
         Routes: ['src/pages/Authorized'],
         authority: ['admin', 'user'],
         routes: [
-            { path: '/', redirect: '/home/mini-home' },
             // home
+            { path: '/', redirect: '/home/minihome' },
             {
                 path: '/home',
                 icon: 'home',
-                name: 'homepage',
-                routes: [{
-                    path: '/home/mini-home',
-                    name: 'console',
-                    component: './home/minihome',
-                }]
+                name: 'home',
+                routes: [
+                    { path: '/home', redirect: '/home/minihome' },
+                    {
+                        path: '/home/minihome',
+                        name: 'home',
+                        component: './home/minihome',
+                    }
+                ],
             },
-            //manage
+            // oils
+            {
+                path: '/oils',
+                icon: 'oils',
+                // hideInMenu: true,
+                name: 'oils',
+                routes: [
+                    { path: '/oils', redirect: "/oils/minioils" },
+                    {
+                        path: '/oils/minioils',
+                        name: 'index',
+                        component: './oils/index',
+                    },
+                    {
+                        path: '/oils/ministream',
+                        name: 'stream',
+                        component: './oils/stream',
+                    },
+                ],
+            },
+
+            // manage
             {
                 path: '/manage',
                 icon: 'setting',
+                hideInMenu: true,
                 name: 'manage',
                 routes: [{
-                    path: '/manage/user',
-                    icon: 'usergroup-add',
-                    name: 'user',
-                    component: './manage/manage'
-                }, {
-                    path: '/manage/rolemanagement',
-                    icon: 'user-add',
-                    name: 'rolemanagement',
-                    component: './manage/role-management'
-                }, {
-                    path: '/manage/meunmanagement',
-                    icon: 'bars',
-                    name: 'meunmanagement',
-                    component: './manage/meun-management'
-                }]
+                        path: '/manage/user',
+                        icon: 'usergroupadd',
+                        name: 'user',
+                        component: './manage/manage',
+                    },
+                    {
+                        path: '/manage/rolemanagement',
+                        icon: 'user-add',
+                        name: 'rolemanagement',
+                        component: './manage/role-management',
+                    },
+                    {
+                        path: '/manage/meunmanagement',
+                        icon: 'bars',
+                        name: 'meunmanagement',
+                        component: './manage/meun-management',
+                    },
+                ],
+            },
+            // store
+            {
+                path: '/store',
+                name: 'store',
+                // hideInMenu: true,
+                icon: 'user',
+                routes: [
+                    { path: '/store', redirect: '/store/running' },
+                    {
+                        path: '/store/running',
+                        name: 'running',
+                        icon: 'user',
+                        component: './store/runningWater',
+                    },
+                    {
+                        path: '/store/index',
+                        name: 'store',
+                        icon: 'user',
+                        component: './store/before/store',
+                    },
+                    {
+                        path: '/store/storemanage',
+                        name: 'storemanage',
+                        icon: 'user',
+                        component: './store/storemanage',
+                    },
+                    {
+                        path: '/store/beform',
+                        name: 'before',
+                        icon: 'user',
+                        routes: [{
+                            path: '/store/beform/store',
+                            name: 'form',
+                            icon: 'user',
+                            component: './store/Form',
+                        }, ],
+                    },
+                ],
             },
             // dashboard
 
             {
                 path: '/dashboard',
                 name: 'dashboard',
+                hideInMenu: true,
                 icon: 'dashboard',
                 routes: [{
                         path: '/dashboard/analysis',
@@ -78,6 +146,7 @@ export default [
             {
                 path: '/form',
                 icon: 'form',
+                hideInMenu: true,
                 name: 'form',
                 routes: [{
                         path: '/form/basic-form',
@@ -123,6 +192,7 @@ export default [
             {
                 path: '/list',
                 icon: 'table',
+                hideInMenu: true,
                 name: 'list',
                 routes: [{
                         path: '/list/table-list',
@@ -169,6 +239,7 @@ export default [
             {
                 path: '/profile',
                 name: 'profile',
+                hideInMenu: true,
                 icon: 'profile',
                 routes: [
                     // profile
@@ -187,6 +258,7 @@ export default [
             },
             {
                 name: 'result',
+                hideInMenu: true,
                 icon: 'check-circle-o',
                 path: '/result',
                 routes: [
@@ -201,6 +273,7 @@ export default [
             },
             {
                 name: 'exception',
+                hideInMenu: true,
                 icon: 'warning',
                 path: '/exception',
                 routes: [
@@ -231,6 +304,7 @@ export default [
             {
                 name: 'account',
                 icon: 'user',
+                hideInMenu: true,
                 path: '/account',
                 routes: [{
                         path: '/account/center',

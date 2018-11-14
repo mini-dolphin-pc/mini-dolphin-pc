@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "presite": "node ./scripts/generateMock.js && cd functions && npm install",
-    "start": "cross-env APP_TYPE=site umi dev",
+    "start": "cross-env MOCK=none APP_TYPE=site umi dev",
     "start:no-mock": "cross-env MOCK=none umi dev",
     "build": "umi build",
     "site": "npm run presite && cross-env APP_TYPE=site npm run build && firebase deploy",
@@ -66,6 +66,7 @@
     "af-webpack": "^1.1.1",
     "ansi-styles": "^3.2.1",
     "ant-design": "^1.0.0",
+    "ant-design-pro": "^2.1.1",
     "antd": "^3.10.2",
     "antd-mobile": "^2.2.5",
     "antd-pro-merge-less": "^0.0.9",
@@ -143,6 +144,15 @@
   },
   "optionalDependencies": {
     "puppeteer": "^1.9.0"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://192.168.3.46:80/",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
   },
   "lint-staged": {
     "**/*.{js,jsx,less}": [
